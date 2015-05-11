@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Draw Application</title>
+
+<script id="vertex-shader" type="x-shader/x-vertex">
+
+attribute vec4 vPosition;
+attribute vec4 vColor;
+varying vec4 color;
+
+void main()
+{   
+    gl_Position = vPosition;
+	color = vColor;
+	gl_PointSize = 10.0;
+} 
+</script>
+
+<script id="fragment-shader" type="x-shader/x-fragment">
+
+precision mediump float;
+
+varying vec4 color;
+
+void
+main()
+{
+	gl_FragColor = color;
+}
+</script>
+
+<script type="text/javascript" src="Common/webgl-utils.js"></script>
+<script type="text/javascript" src="Common/initShaders.js"></script>
+<script type="text/javascript" src="Common/MV.js"></script>
+<script type="text/javascript" src="draw_app.js"></script>
+</head>
+
+<body>
+<div style="float:left">
+<canvas id="gl-canvas" width="512" height="512">
+Oops ... your browser doesn't support the HTML5 canvas element
+</canvas>
+</div>
+
+<div style="width:300px; float:left; margin-left:50px;">
+<button id = "LinesButton" style="margin-bottom:10px;margin-top:10px;height:30px; width:100px">Lines</button><br>
+<button id = "TrianglesButton" style="margin-bottom:10px;margin-top:10px;height:30px; width:100px">Triangles</button><br>
+<button id = "QuadButton" style="margin-bottom:10px;margin-top:10px;height:30px; width:100px">Quad</button><br>
+<button id = "ClearScreenButton" style="margin-bottom:10px;margin-top:10px;height:30px; width:100px">ClearScreen</button><br>
+</div>
+
+<div style="clear: left">
+<textarea id = "message" rows="4" cols="60">
+Message Box
+</textarea>
+</div>
+
+</body>
+
+</html>
